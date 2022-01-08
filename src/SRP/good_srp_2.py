@@ -15,14 +15,6 @@ class CarModel:
         self.model = model
         self.last_service = last_service
 
-    @classmethod
-    def get_by_id(cls, id: int) -> "CarManager":
-        data = cars_db[id]
-        return cls(
-            id=id,
-            **data
-        )
-
     @property
     def requires_service(self) -> bool:
         return datetime.today().year - 1 > self.last_service
